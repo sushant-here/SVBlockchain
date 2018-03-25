@@ -22,7 +22,7 @@ pod 'SVBlockchain'
 
 ## Author
 
-sushant.40@gmail.com, sushantverma@hcf.com.au
+sushant.40@gmail.com
 
 ## License
 
