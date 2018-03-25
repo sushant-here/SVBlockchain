@@ -9,34 +9,30 @@
 Pod::Spec.new do |s|
   s.name             = 'SVBlockchain'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of SVBlockchain.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.summary          = 'Blockchain account balance querying for iOS apps!'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+    Async blockchain account balance querying for iOS apps!
+    Supported coins:
+    - Bitcoin
+    - Litecoin
+    - Etherium
+    - Etherium Classic
+    - Ripple
+    - Bitcoin Cash
+    
+    Uses various external/3rd party APIs. Future release will provide validation and API disclaimer information.
                        DESC
 
-  s.homepage         = 'https://github.com/sushant.40@gmail.com/SVBlockchain'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/sushant40/SVBlockchain'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'sushant.40@gmail.com' => 'sushantverma@hcf.com.au' }
-  s.source           = { :git => 'https://github.com/sushant.40@gmail.com/SVBlockchain.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'Sushant Verma' => 'sushant.40@gmail.com' }
+  s.source           = { :git => 'https://github.com/sushant40/SVBlockchain.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
+  s.swift_version = '4.0'
 
   s.source_files = 'SVBlockchain/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'SVBlockchain' => ['SVBlockchain/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'SwiftyJSON', '~> 4.0'
 end

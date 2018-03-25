@@ -1,0 +1,22 @@
+PODS:
+  - Nimble (7.0.3)
+  - SVBlockchain (0.1.0):
+    - SwiftyJSON (~> 4.0)
+  - SwiftyJSON (4.0.0)
+
+DEPENDENCIES:
+  - Nimble (~> 7.0.2)
+  - SVBlockchain (from `../`)
+
+EXTERNAL SOURCES:
+  SVBlockchain:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  SVBlockchain: 18bca8e52a8864983d7e098da837864db232c48a
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+
+PODFILE CHECKSUM: e7be3be67cacdc3b7502f0e4bb6902af029fba57
+
+COCOAPODS: 1.4.0

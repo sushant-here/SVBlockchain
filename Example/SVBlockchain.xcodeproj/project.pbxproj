@@ -42,11 +42,11 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		A092C19E111D2D91B0518707 /* Pods-SVBlockchain_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SVBlockchain_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SVBlockchain_Tests/Pods-SVBlockchain_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		A0AD4F9EFE35476E3BA26F14 /* SVBlockchain.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = SVBlockchain.podspec; path = ../SVBlockchain.podspec; sourceTree = "<group>"; };
-		ACA1C272298DAB43DAB69953 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		A0AD4F9EFE35476E3BA26F14 /* SVBlockchain.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SVBlockchain.podspec; path = ../SVBlockchain.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		ACA1C272298DAB43DAB69953 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C31136B9FB649CE17F76EB83 /* Pods_SVBlockchain_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SVBlockchain_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD23410C712A26B2F7AA213C /* Pods-SVBlockchain_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SVBlockchain_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SVBlockchain_Example/Pods-SVBlockchain_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		DB642176D57917FA7D3ABE27 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		DB642176D57917FA7D3ABE27 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,10 +215,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = A5SB3DZ83M;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = A5SB3DZ83M;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -287,10 +289,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SVBlockchain_Example/Pods-SVBlockchain_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SVBlockchain/SVBlockchain.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVBlockchain.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -355,17 +359,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SVBlockchain_Tests/Pods-SVBlockchain_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FBSnapshotTestCase/FBSnapshotTestCase.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Nimble-Snapshots/Nimble_Snapshots.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble_Snapshots.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -526,6 +524,7 @@
 			baseConfigurationReference = CD23410C712A26B2F7AA213C /* Pods-SVBlockchain_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A5SB3DZ83M;
 				INFOPLIST_FILE = SVBlockchain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -541,6 +540,7 @@
 			baseConfigurationReference = 56C106ABB39C430B2F5D374E /* Pods-SVBlockchain_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A5SB3DZ83M;
 				INFOPLIST_FILE = SVBlockchain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -555,6 +555,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2BDA8E879E0E91B291B41945 /* Pods-SVBlockchain_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = A5SB3DZ83M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -569,6 +570,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SVBlockchain_Example.app/SVBlockchain_Example";
 			};
 			name = Debug;
 		};
@@ -576,6 +578,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A092C19E111D2D91B0518707 /* Pods-SVBlockchain_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = A5SB3DZ83M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -586,6 +589,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SVBlockchain_Example.app/SVBlockchain_Example";
 			};
 			name = Release;
 		};

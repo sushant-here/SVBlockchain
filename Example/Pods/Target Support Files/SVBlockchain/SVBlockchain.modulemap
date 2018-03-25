@@ -1,0 +1,6 @@
+framework module SVBlockchain {
+  umbrella header "SVBlockchain-umbrella.h"
+
+  export *
+  module * { export * }
+}
