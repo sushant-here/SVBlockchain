@@ -2,7 +2,7 @@ import XCTest
 import Nimble
 import SVBlockchain
 
-class TableOfContentsSpec: XCTestCase {
+class SimpleTests: XCTestCase {
     var service:BlockchainService?
 
     func testEtherium() {
