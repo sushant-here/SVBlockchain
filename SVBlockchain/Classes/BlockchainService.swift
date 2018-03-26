@@ -20,7 +20,8 @@ public class EtheriumService : BlockchainService {
     
     public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber) -> Void) {
         
-        let url = URL(string: "https://api.ethplorer.io/getAddressInfo/\(address)?apiKey=freekey")
+        let contract = "0x89205a3a3b2a69de6dbf7f01ed13b2108b2c43e7"
+        let url = URL(string: "https://api.tokenbalance.com/token/\(contract)/\(address)")
         
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             
@@ -28,7 +29,7 @@ public class EtheriumService : BlockchainService {
                 do {
                     let json = try JSON(data: data)
                     
-                    let balance = NSDecimalNumber.init(string: json["ETH"]["balance"].stringValue)
+                    let balance = NSDecimalNumber.init(string: json["eth_balance"].stringValue)
                     
                     callback(balance)
                 }
