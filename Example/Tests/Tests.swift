@@ -20,7 +20,7 @@ class SimpleTests: XCTestCase {
                 semaphore.signal()
             })
             
-            if semaphore.wait(timeout: DispatchTime.now() + .seconds(10)) == .timedOut {
+            if semaphore.wait(timeout: DispatchTime.now() + .seconds(20)) == .timedOut {
                 XCTFail("Timed out")
             }
         }
@@ -41,7 +41,7 @@ class SimpleTests: XCTestCase {
                 semaphore.signal()
             })
             
-            if semaphore.wait(timeout: DispatchTime.now() + .seconds(10)) == .timedOut {
+            if semaphore.wait(timeout: DispatchTime.now() + .seconds(20)) == .timedOut {
                 XCTFail("Timed out")
             }
         }
@@ -62,7 +62,7 @@ class SimpleTests: XCTestCase {
                 semaphore.signal()
             })
             
-            if semaphore.wait(timeout: DispatchTime.now() + .seconds(10)) == .timedOut {
+            if semaphore.wait(timeout: DispatchTime.now() + .seconds(20)) == .timedOut {
                 XCTFail("Timed out")
             }
         }
@@ -81,7 +81,7 @@ class SimpleTests: XCTestCase {
                 semaphore.signal()
             })
             
-            if semaphore.wait(timeout: DispatchTime.now() + .seconds(10)) == .timedOut {
+            if semaphore.wait(timeout: DispatchTime.now() + .seconds(20)) == .timedOut {
                 XCTFail("Timed out")
             }
         }
@@ -100,7 +100,7 @@ class SimpleTests: XCTestCase {
                 semaphore.signal()
             })
             
-            if semaphore.wait(timeout: DispatchTime.now() + .seconds(10)) == .timedOut {
+            if semaphore.wait(timeout: DispatchTime.now() + .seconds(20)) == .timedOut {
                 XCTFail("Timed out")
             }
         }
@@ -119,7 +119,7 @@ class SimpleTests: XCTestCase {
                 semaphore.signal()
             })
             
-            if semaphore.wait(timeout: DispatchTime.now() + .seconds(10)) == .timedOut {
+            if semaphore.wait(timeout: DispatchTime.now() + .seconds(20)) == .timedOut {
                 XCTFail("Timed out")
             }
         }
