@@ -2,7 +2,7 @@ import XCTest
 import Nimble
 import SVBlockchain
 
-class SimpleTests: XCTestCase {
+class DataTests: XCTestCase {
     var service:BlockchainService?
     
     let STANDARD_TIMEOUT = 60

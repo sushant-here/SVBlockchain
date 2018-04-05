@@ -9,6 +9,16 @@ import UIKit
 import SwiftyJSON
 import Regex
 
+public class BlockChainFactory {
+    public static func service(forCoin:String)->BlockchainService? {
+        switch forCoin {
+        case "ETH":
+            return EtheriumService()
+        }
+        return nil
+    }
+}
+
 public protocol BlockchainService {
     func coinsForAddress(address:String, withCallback callback: @escaping (NSDecimalNumber)->Void ) -> Void
     
