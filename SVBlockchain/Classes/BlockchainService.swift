@@ -33,11 +33,11 @@ public class BlockchainFactory {
 public protocol BlockchainService {
     func coinsForAddress(address:String, withCallback callback: @escaping (NSDecimalNumber)->Void ) -> Void
     
-    func isValid(address:String) -> Bool
+    func isValid(address:String?) -> Bool
 }
 
 public extension BlockchainService {
-    func isValid(address:String) -> Bool{
+    func isValid(address:String?) -> Bool{
         return false
     }
 }
@@ -76,11 +76,11 @@ public class EtheriumService : BlockchainService {
         
     }
     
-    public func isValid(address: String) -> Bool {
+    public func isValid(address: String?) -> Bool {
         do {
             return try Regex(pattern: "^0x[0-9a-f]{40}$",
                              options: [],
-                             groupNames: []).matches(address)
+                             groupNames: []).matches(address!)
         }
         catch {
             return false
@@ -124,11 +124,11 @@ public class LitecoinService : BlockchainService {
         task.resume()
     }
     
-    public func isValid(address: String) -> Bool {
+    public func isValid(address: String?) -> Bool {
         do {
             return try Regex(pattern: "^[LM3][a-km-zA-HJ-NP-Z1-9]{26,33}$",
                              options: [],
-                             groupNames: []).matches(address)
+                             groupNames: []).matches(address!)
         }
         catch {
             return false
@@ -158,7 +158,7 @@ public class BitcoinService : BlockchainService {
         task.resume()
     }
     
-    public func isValid(address: String) -> Bool {
+    public func isValid(address: String?) -> Bool {
         /**
          * bitcoin address is
          *
@@ -174,7 +174,7 @@ public class BitcoinService : BlockchainService {
         do {
             return try Regex(pattern: "^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$",
                              options: [],
-                             groupNames: []).matches(address)
+                             groupNames: []).matches(address!)
         }
         catch {
             return false
@@ -216,14 +216,14 @@ public class RippleService : BlockchainService {
         task.resume()
     }
     
-    public func isValid(address: String) -> Bool {
+    public func isValid(address: String?) -> Bool {
         /**
          * https://github.com/k4m4/ripple-regex
          */
         do {
             return try Regex(pattern: "^r[0-9a-zA-Z]{33}$",
                              options: [],
-                             groupNames: []).matches(address)
+                             groupNames: []).matches(address!)
         }
         catch {
             return false
@@ -259,14 +259,14 @@ public class EtheriumClassicService : BlockchainService {
         task.resume()
     }
     
-    public func isValid(address: String) -> Bool {
+    public func isValid(address: String?) -> Bool {
         /**
          * https://github.com/k4m4/ethereum-regex
          */
         do {
             return try Regex(pattern: "^0x[a-fA-F0-9]{40}$",
                              options: [],
-                             groupNames: []).matches(address)
+                             groupNames: []).matches(address!)
         }
         catch {
             return false
@@ -296,11 +296,11 @@ public class BitcoinCashService : BlockchainService {
         task.resume()
     }
     
-    public func isValid(address: String) -> Bool {
+    public func isValid(address: String?) -> Bool {
         do {
             return try Regex(pattern: "^[13][a-km-zA-HJ-NP-Z1-9]{33}$",
                              options: [],
-                             groupNames: []).matches(address)
+                             groupNames: []).matches(address!)
         }
         catch {
             return false

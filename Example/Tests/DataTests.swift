@@ -40,6 +40,7 @@ class DataTests: XCTestCase {
         
         expect(self.service?.isValid(address: self.ETH_ADDRESS)) == true
         expect(self.service?.isValid(address: self.ETH_ADDRESS.uppercased())) == false
+        expect(self.service?.isValid(address: nil)) == false
         expect(self.service?.isValid(address: "")) == false
         expect(self.service?.isValid(address: "abc")) == false
     }
@@ -88,6 +89,7 @@ class DataTests: XCTestCase {
         service = BitcoinService()
         
         expect(self.service?.isValid(address: self.BTC_ADDRESS)) == true
+        expect(self.service?.isValid(address: nil)) == false
         expect(self.service?.isValid(address: "")) == false
         expect(self.service?.isValid(address: "abc")) == false
     }
@@ -136,6 +138,7 @@ class DataTests: XCTestCase {
         service = LitecoinService()
         
         expect(self.service?.isValid(address: self.LTC_ADDRESS)) == true
+        expect(self.service?.isValid(address: nil)) == false
         expect(self.service?.isValid(address: "")) == false
         expect(self.service?.isValid(address: "abc")) == false
     }
@@ -183,6 +186,7 @@ class DataTests: XCTestCase {
         service = RippleService()
         
         expect(self.service?.isValid(address: self.XRP_ADDRESS)) == true
+        expect(self.service?.isValid(address: nil)) == false
         expect(self.service?.isValid(address: "")) == false
         expect(self.service?.isValid(address: "abc")) == false
     }
@@ -211,6 +215,7 @@ class DataTests: XCTestCase {
         service = EtheriumClassicService()
         
         expect(self.service?.isValid(address: self.ETC_ADDRESS)) == true
+        expect(self.service?.isValid(address: nil)) == false
         expect(self.service?.isValid(address: "")) == false
         expect(self.service?.isValid(address: "abc")) == false
     }
@@ -239,6 +244,7 @@ class DataTests: XCTestCase {
         service = BitcoinCashService()
         
         expect(self.service?.isValid(address: self.BTC_ADDRESS)) == true
+        expect(self.service?.isValid(address: nil)) == false
         expect(self.service?.isValid(address: "")) == false
         expect(self.service?.isValid(address: "abc")) == false
     }
