@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BF249622076503E00781D04 /* FactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF249612076503E00781D04 /* FactoryTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		2BDA8E879E0E91B291B41945 /* Pods-SVBlockchain_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SVBlockchain_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SVBlockchain_Tests/Pods-SVBlockchain_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		3BF249612076503E00781D04 /* FactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryTests.swift; sourceTree = "<group>"; };
 		478B2E0592596757FCE497BA /* Pods_SVBlockchain_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SVBlockchain_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56C106ABB39C430B2F5D374E /* Pods-SVBlockchain_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SVBlockchain_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SVBlockchain_Example/Pods-SVBlockchain_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SVBlockchain_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SVBlockchain_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACEB1AFB9204008FA782 /* DataTests.swift */,
+				3BF249612076503E00781D04 /* FactoryTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -388,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BF249622076503E00781D04 /* FactoryTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* DataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

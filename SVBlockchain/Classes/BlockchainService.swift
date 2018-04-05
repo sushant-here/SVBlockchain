@@ -9,13 +9,24 @@ import UIKit
 import SwiftyJSON
 import Regex
 
-public class BlockChainFactory {
+public class BlockchainFactory {
     public static func service(forCoin:String)->BlockchainService? {
         switch forCoin {
         case "ETH":
             return EtheriumService()
+        case "BTC":
+            return BitcoinService()
+        case "LTC":
+            return LitecoinService()
+        case "XRP":
+            return RippleService()
+        case "ETC":
+            return EtheriumClassicService()
+        case "BCH":
+            return BitcoinCashService()
+        default:
+            return nil
         }
-        return nil
     }
 }
 
