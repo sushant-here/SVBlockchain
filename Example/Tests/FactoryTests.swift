@@ -43,6 +43,7 @@ class FactoryTests: XCTestCase {
     }
         
     func testInvalidFactory() {
+        expect( BlockchainFactory.service(forCoin: nil) ).to(beNil())
         expect( BlockchainFactory.service(forCoin: "") ).to(beNil())
         expect( BlockchainFactory.service(forCoin: "xrp") ).to(beNil())
     }

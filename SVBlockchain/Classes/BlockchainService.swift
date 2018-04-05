@@ -10,7 +10,7 @@ import SwiftyJSON
 import Regex
 
 public class BlockchainFactory {
-    public static func service(forCoin:String)->BlockchainService? {
+    public static func service(forCoin:String?)->BlockchainService? {
         switch forCoin {
         case "ETH":
             return EtheriumService()
