@@ -75,15 +75,16 @@ public class LitecoinService : BlockchainService {
     
     public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber) -> Void) {
         
-        let url = URL(string: "https://chain.so/api/v2/get_address_balance/LTC/\(address)/16")
-        
+        //let url = URL(string: "https://chain.so/api/v2/get_address_balance/LTC/\(address)/16")
+        let url = URL(string: "https://api.blockcypher.com/v1/ltc/main/addrs/\(address)/balance")
+
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             
             if let data = data {
                 do {
                     let json = try JSON(data: data)
                     
-                    let balance = NSDecimalNumber.init(string: json["data"]["confirmed_balance"].stringValue)
+                    let balance = NSDecimalNumber.init(string: json["final_balance"].stringValue).dividing(by: NSDecimalNumber.init(mantissa: 1, exponent: 8, isNegative: false))
                                         
                     callback(balance)
                 }
