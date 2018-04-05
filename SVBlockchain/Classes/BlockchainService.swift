@@ -78,7 +78,7 @@ public class EtheriumService : BlockchainService {
     
     public func isValid(address: String?) -> Bool {
         do {
-            return try Regex(pattern: "^0x[0-9a-f]{40}$",
+            return try Regex(pattern: "^0x[a-fA-F0-9]{40}$",
                              options: [],
                              groupNames: []).matches(address!)
         }
