@@ -2,12 +2,8 @@
 # * http://www.objc.io/issue-6/travis-ci.html
 # * https://github.com/supermarin/xcpretty#usage
 
-before_install:
-  - gem install cocoapods -v '1.4.0'
-  - pod repo update
-
-osx_image: xcode9.3
-xcode_sdk: iphonesimulator11.3
+osx_image: xcode9.2
+xcode_sdk: iphonesimulator11.2
 language: objective-c
 # cache: cocoapods
 # podfile: Example/Podfile
@@ -15,5 +11,5 @@ language: objective-c
 # - gem install cocoapods # Since Travis is not always on latest version
 # - pod install --project-directory=Example
 script:
-- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/SVBlockchain.xcworkspace -scheme SVBlockchain-Example -destination 'platform=iOS Simulator,name=iPhone 7 Plus' | xcpretty
+- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/SVBlockchain.xcworkspace -scheme SVBlockchain-Example -destination 'platform=iOS Simulator,name=iPhone 8' | xcpretty
 - pod lib lint
