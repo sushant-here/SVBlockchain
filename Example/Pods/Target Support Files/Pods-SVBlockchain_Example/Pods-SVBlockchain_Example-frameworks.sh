@@ -134,10 +134,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/CrossroadRegex/Regex.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SVBlockchain/SVBlockchain.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/CrossroadRegex/Regex.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SVBlockchain/SVBlockchain.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
 fi

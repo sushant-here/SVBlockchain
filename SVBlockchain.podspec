@@ -35,4 +35,5 @@ Pod::Spec.new do |s|
   s.source_files = 'SVBlockchain/Classes/**/*'
   
   s.dependency 'SwiftyJSON', '~> 4.0'
+  s.dependency 'CrossroadRegex', '~> 1.1'
 end
