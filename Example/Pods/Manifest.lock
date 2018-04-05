@@ -1,7 +1,7 @@
 PODS:
   - CrossroadRegex (1.1.0)
   - Nimble (7.0.3)
-  - SVBlockchain (0.1.2):
+  - SVBlockchain (0.1.3):
     - CrossroadRegex (~> 1.1.0)
     - SwiftyJSON (~> 4.0)
   - SwiftyJSON (4.0.0)
@@ -17,7 +17,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   CrossroadRegex: 5eaadb3f7b4014728f1cbd1014756b126c1dbd9a
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
-  SVBlockchain: 2a14cc426af6cf5e9625d526597ce0d8c1fdb16b
+  SVBlockchain: e431769b5bb5dd01c7ce4c6b6c40ac42580f58d3
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
 PODFILE CHECKSUM: e7be3be67cacdc3b7502f0e4bb6902af029fba57
