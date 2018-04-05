@@ -5,7 +5,7 @@ import SVBlockchain
 class SimpleTests: XCTestCase {
     var service:BlockchainService?
     
-    let STANDARD_TIMEOUT = 30
+    let STANDARD_TIMEOUT = 60
     let ETH_ADDRESS = "0xec5b3e7390302963f0d379d98c2fc39e741af210"
     let BTC_ADDRESS = "1DECAF2uSpFTP4L1fAHR8GCLrPqdwdLse9"
     let LTC_ADDRESS = "LQL9pVH1LsMfKwt82Y2wGhNGkrjF8vwUst"

@@ -80,6 +80,9 @@ public class LitecoinService : BlockchainService {
 
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             
+            let status = (response as! HTTPURLResponse).statusCode
+            print("response status: \(status)")
+
             if let data = data {
                 do {
                     let json = try JSON(data: data)
