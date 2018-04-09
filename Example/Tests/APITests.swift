@@ -2,17 +2,9 @@ import XCTest
 import Nimble
 import SVBlockchain
 
-class DataTests: XCTestCase {
+class APITests: XCTestCase {
     var service:BlockchainService?
     
-    let STANDARD_TIMEOUT = 60
-    let ETH_ADDRESS = "0xec5b3e7390302963f0d379d98c2fc39e741af210"
-    let BTC_ADDRESS = "1DECAF2uSpFTP4L1fAHR8GCLrPqdwdLse9"
-    let LTC_ADDRESS = "LQL9pVH1LsMfKwt82Y2wGhNGkrjF8vwUst"
-    let XRP_ADDRESS = "rENDnFwR3CPvrsPjD9XXeqVoXeVt2CpPWX"
-    let ETC_ADDRESS = "0x3F45616cFb992988943ff3bA00e8c0aA46B4540a"
-    let BCH_ADDRESS = "qq07l6rr5lsdm3m80qxw80ku2ex0tj76vvsxpvmgme"
-
     func testEtheriumAPI() {
         
         service = EtheriumService()
@@ -20,7 +12,7 @@ class DataTests: XCTestCase {
         let semaphore = DispatchSemaphore(value: 0)
         
         measure {
-            service?.coinsForAddress(address: ETH_ADDRESS, withCallback: { (number) in
+            service?.coinsForAddress(address: Addresses.ETH, withCallback: { (number) in
                 
                 expect(number) > NSDecimalNumber.zero
                 
@@ -28,7 +20,7 @@ class DataTests: XCTestCase {
                 semaphore.signal()
             })
             
-            if semaphore.wait(timeout: DispatchTime.now() + .seconds(STANDARD_TIMEOUT)) == .timedOut {
+            if semaphore.wait(timeout: DispatchTime.now() + .seconds(Constants.StandardTimeout)) == .timedOut {
                 XCTFail("Timed out")
             }
         }
@@ -38,30 +30,11 @@ class DataTests: XCTestCase {
         
         service = EtheriumService()
         
-        expect(self.service?.isValid(address: self.ETH_ADDRESS)) == true
-        expect(self.service?.isValid(address: self.ETH_ADDRESS.uppercased())) == false
+        expect(self.service?.isValid(address: Addresses.ETH)) == true
+        expect(self.service?.isValid(address: Addresses.ETH.uppercased())) == false
         expect(self.service?.isValid(address: nil)) == false
         expect(self.service?.isValid(address: "")) == false
         expect(self.service?.isValid(address: "abc")) == false
-    }
-    
-    func testEtheriumBalance() {
-        
-        service = EtheriumService()
-        
-        let semaphore = DispatchSemaphore(value: 0)
-        
-        measure {
-            service?.coinsForAddress(address: ETH_ADDRESS, withCallback: { (number) in
-                
-                expect(number) == NSDecimalNumber.init(string: "0.057273534")
-                semaphore.signal()
-            })
-            
-            if semaphore.wait(timeout: DispatchTime.now() + .seconds(STANDARD_TIMEOUT)) == .timedOut {
-                XCTFail("Timed out")
-            }
-        }
     }
     
     func testBitcoinAPI() {
@@ -71,14 +44,14 @@ class DataTests: XCTestCase {
         let semaphore = DispatchSemaphore(value: 0)
         
         measure {
-            service?.coinsForAddress(address: BTC_ADDRESS, withCallback: { (number) in
+            service?.coinsForAddress(address: Addresses.BTC, withCallback: { (number) in
                 
                 expect(number) > NSDecimalNumber.zero
                 
                 semaphore.signal()
             })
             
-            if semaphore.wait(timeout: DispatchTime.now() + .seconds(STANDARD_TIMEOUT)) == .timedOut {
+            if semaphore.wait(timeout: DispatchTime.now() + .seconds(Constants.StandardTimeout)) == .timedOut {
                 XCTFail("Timed out")
             }
         }
@@ -88,29 +61,10 @@ class DataTests: XCTestCase {
         
         service = BitcoinService()
         
-        expect(self.service?.isValid(address: self.BTC_ADDRESS)) == true
+        expect(self.service?.isValid(address: Addresses.BTC)) == true
         expect(self.service?.isValid(address: nil)) == false
         expect(self.service?.isValid(address: "")) == false
         expect(self.service?.isValid(address: "abc")) == false
-    }
-    
-    func testBitcoinBalance() {
-        
-        service = BitcoinService()
-        
-        let semaphore = DispatchSemaphore(value: 0)
-        
-        measure {
-            service?.coinsForAddress(address: BTC_ADDRESS, withCallback: { (number) in
-                
-                expect(number.stringValue) == "3.76105098"
-                semaphore.signal()
-            })
-            
-            if semaphore.wait(timeout: DispatchTime.now() + .seconds(STANDARD_TIMEOUT)) == .timedOut {
-                XCTFail("Timed out")
-            }
-        }
     }
     
     func testLitecoinAPI() {
@@ -118,14 +72,14 @@ class DataTests: XCTestCase {
         service = LitecoinService()
         
         let semaphore = DispatchSemaphore(value: 0)
-        service?.coinsForAddress(address: LTC_ADDRESS, withCallback: { (number) in
+        service?.coinsForAddress(address: Addresses.LTC, withCallback: { (number) in
 
             expect(number) > NSDecimalNumber.zero
 
             semaphore.signal()
         })
 
-        if semaphore.wait(timeout: DispatchTime.now() + .seconds(STANDARD_TIMEOUT)) == .timedOut {
+        if semaphore.wait(timeout: DispatchTime.now() + .seconds(Constants.StandardTimeout)) == .timedOut {
             XCTFail("Timed out")
         }
     }
@@ -134,27 +88,10 @@ class DataTests: XCTestCase {
         
         service = LitecoinService()
         
-        expect(self.service?.isValid(address: self.LTC_ADDRESS)) == true
+        expect(self.service?.isValid(address: Addresses.LTC)) == true
         expect(self.service?.isValid(address: nil)) == false
         expect(self.service?.isValid(address: "")) == false
         expect(self.service?.isValid(address: "abc")) == false
-    }
-    
-    func testLitecoinBalance() {
-        
-        service = LitecoinService()
-        
-        let semaphore = DispatchSemaphore(value: 0)
-        
-        service?.coinsForAddress(address: LTC_ADDRESS, withCallback: { (number) in
-            
-            expect(number) == NSDecimalNumber.init(string: "897135.39855629")
-            semaphore.signal()
-        })
-        
-        if semaphore.wait(timeout: DispatchTime.now() + .seconds(STANDARD_TIMEOUT)) == .timedOut {
-            XCTFail("Timed out")
-        }
     }
     
     func testRippleAPI() {
@@ -164,13 +101,13 @@ class DataTests: XCTestCase {
         let semaphore = DispatchSemaphore(value: 0)
         
         measure {
-            service?.coinsForAddress(address: XRP_ADDRESS, withCallback: { (number) in
+            service?.coinsForAddress(address: Addresses.XRP, withCallback: { (number) in
                 
                 expect(number) > NSDecimalNumber.zero
                 semaphore.signal()
             })
             
-            if semaphore.wait(timeout: DispatchTime.now() + .seconds(STANDARD_TIMEOUT)) == .timedOut {
+            if semaphore.wait(timeout: DispatchTime.now() + .seconds(Constants.StandardTimeout)) == .timedOut {
                 XCTFail("Timed out")
             }
         }
@@ -180,7 +117,7 @@ class DataTests: XCTestCase {
         
         service = RippleService()
         
-        expect(self.service?.isValid(address: self.XRP_ADDRESS)) == true
+        expect(self.service?.isValid(address: Addresses.XRP)) == true
         expect(self.service?.isValid(address: nil)) == false
         expect(self.service?.isValid(address: "")) == false
         expect(self.service?.isValid(address: "abc")) == false
@@ -193,13 +130,13 @@ class DataTests: XCTestCase {
         let semaphore = DispatchSemaphore(value: 0)
         
         measure {
-            service?.coinsForAddress(address: ETC_ADDRESS, withCallback: { (number) in
+            service?.coinsForAddress(address: Addresses.ETC, withCallback: { (number) in
                 
                 expect(number) > NSDecimalNumber.zero
                 semaphore.signal()
             })
             
-            if semaphore.wait(timeout: DispatchTime.now() + .seconds(STANDARD_TIMEOUT)) == .timedOut {
+            if semaphore.wait(timeout: DispatchTime.now() + .seconds(Constants.StandardTimeout)) == .timedOut {
                 XCTFail("Timed out")
             }
         }
@@ -209,7 +146,7 @@ class DataTests: XCTestCase {
         
         service = EtheriumClassicService()
         
-        expect(self.service?.isValid(address: self.ETC_ADDRESS)) == true
+        expect(self.service?.isValid(address: Addresses.ETC)) == true
         expect(self.service?.isValid(address: nil)) == false
         expect(self.service?.isValid(address: "")) == false
         expect(self.service?.isValid(address: "abc")) == false
@@ -222,13 +159,13 @@ class DataTests: XCTestCase {
         let semaphore = DispatchSemaphore(value: 0)
         
         measure {
-            service?.coinsForAddress(address: BCH_ADDRESS, withCallback: { (number) in
+            service?.coinsForAddress(address: Addresses.BCH, withCallback: { (number) in
                 
                 expect(number) > NSDecimalNumber.zero
                 semaphore.signal()
             })
             
-            if semaphore.wait(timeout: DispatchTime.now() + .seconds(STANDARD_TIMEOUT)) == .timedOut {
+            if semaphore.wait(timeout: DispatchTime.now() + .seconds(Constants.StandardTimeout  )) == .timedOut {
                 XCTFail("Timed out")
             }
         }
@@ -238,7 +175,7 @@ class DataTests: XCTestCase {
         
         service = BitcoinCashService()
         
-        expect(self.service?.isValid(address: self.BTC_ADDRESS)) == true
+        expect(self.service?.isValid(address: Addresses.BCH)) == true
         expect(self.service?.isValid(address: nil)) == false
         expect(self.service?.isValid(address: "")) == false
         expect(self.service?.isValid(address: "abc")) == false
