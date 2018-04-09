@@ -1,0 +1,6 @@
+framework module QueryString {
+  umbrella header "QueryString-umbrella.h"
+
+  export *
+  module * { export * }
+}

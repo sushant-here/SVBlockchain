@@ -1,13 +1,17 @@
 PODS:
   - CrossroadRegex (1.1.0)
   - Nimble (7.0.3)
-  - SVBlockchain (0.1.5):
+  - QueryString (0.2.2)
+  - Stubborn (0.5.2):
+    - QueryString (= 0.2.2)
+  - SVBlockchain (0.1.6):
     - CrossroadRegex (~> 1.1.0)
     - SwiftyJSON (~> 4.0)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
   - Nimble (~> 7.0.2)
+  - Stubborn
   - SVBlockchain (from `../`)
 
 EXTERNAL SOURCES:
@@ -17,9 +21,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   CrossroadRegex: 5eaadb3f7b4014728f1cbd1014756b126c1dbd9a
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
-  SVBlockchain: 365471a75c8022bed65853a5e7b246a2f5e81eea
+  QueryString: de7cee83b6f3b6b708f03842bd5558e895cf8e7c
+  Stubborn: 15755e2a9ef1d4370e83b2bfed13a0039323b45f
+  SVBlockchain: 815c79c27289b0ce8aa66a344987d26b54ebab91
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: e7be3be67cacdc3b7502f0e4bb6902af029fba57
+PODFILE CHECKSUM: cb42fa2f2ffc3eb08df2bb1d512839bacd63856e
 
 COCOAPODS: 1.4.0

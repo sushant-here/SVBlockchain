@@ -1,0 +1,6 @@
+framework module Stubborn {
+  umbrella header "Stubborn-umbrella.h"
+
+  export *
+  module * { export * }
+}
