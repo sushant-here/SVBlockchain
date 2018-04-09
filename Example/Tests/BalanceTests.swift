@@ -59,5 +59,21 @@ class BalanceTests: XCTestCase {
         
         self.waitForExpectations(timeout: 2, handler: nil)
     }
-
+    
+    func testLitecoinBalance() {
+        let bundle = Bundle(for: self.classForCoder)
+        Stubborn.add(url: ".*/v1/ltc/main/addrs/.*/balance",
+                     resource: Stubborn.Body.Resource("LTC", in: bundle)
+        )
+        
+        let service:BlockchainService = LitecoinService()
+        let expectation = self.expectation(description: "request")
+        service.coinsForAddress(address: Addresses.LTC, withCallback: { (number) in
+            
+            expect(number) == NSDecimalNumber.init(string: "33.14159265")
+            expectation.fulfill()
+        })
+        
+        self.waitForExpectations(timeout: 2, handler: nil)
+    }
 }
