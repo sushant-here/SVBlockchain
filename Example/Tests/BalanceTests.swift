@@ -93,4 +93,21 @@ class BalanceTests: XCTestCase {
         
         self.waitForExpectations(timeout: 2, handler: nil)
     }
+    
+    func testEtheriumClassicBalance() {
+        let bundle = Bundle(for: self.classForCoder)
+        Stubborn.add(url: ".*/addr/.*",
+                     resource: Stubborn.Body.Resource("ETC", in: bundle)
+        )
+        
+        let service:BlockchainService = EtheriumClassicService()
+        let expectation = self.expectation(description: "request")
+        service.coinsForAddress(address: Addresses.ETC, withCallback: { (number) in
+            
+            expect(number) == NSDecimalNumber.init(string: "53.14159265")
+            expectation.fulfill()
+        })
+        
+        self.waitForExpectations(timeout: 2, handler: nil)
+    }
 }
