@@ -34,6 +34,8 @@ public protocol BlockchainService {
     func coinsForAddress(address:String, withCallback callback: @escaping (NSDecimalNumber)->Void ) -> Void
     
     func isValid(address:String?) -> Bool
+    
+    var externalServiceProvider:String { get }
 }
 
 public extension BlockchainService {
@@ -43,9 +45,16 @@ public extension BlockchainService {
 }
 
 public class EtheriumService : BlockchainService {
-
+    
     public init() {
         
+    }
+    
+    public var externalServiceProvider:String
+    {
+        get {
+            return "tokenbalance.com"
+        }
     }
     
     public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber) -> Void) {
@@ -77,14 +86,15 @@ public class EtheriumService : BlockchainService {
     }
     
     public func isValid(address: String?) -> Bool {
-        do {
-            return try Regex(pattern: "^0x[a-fA-F0-9]{40}$",
-                             options: [],
-                             groupNames: []).matches(address!)
+        if let address = address {
+            do {
+                return try Regex(pattern: "^0x[a-fA-F0-9]{40}$",
+                                 options: [],
+                                 groupNames: []).matches(address)
+            }
+            catch { }
         }
-        catch {
-            return false
-        }
+        return false
     }
 }
 
@@ -94,8 +104,14 @@ public class LitecoinService : BlockchainService {
         
     }
     
+    public var externalServiceProvider:String
+    {
+        get {
+            return "api.blockcypher.com"
+        }
+    }
+    
     public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber) -> Void) {
-        
         //let url = URL(string: "https://chain.so/api/v2/get_address_balance/LTC/\(address)/16")
         let url = URL(string: "https://api.blockcypher.com/v1/ltc/main/addrs/\(address)/balance")
 
@@ -125,14 +141,15 @@ public class LitecoinService : BlockchainService {
     }
     
     public func isValid(address: String?) -> Bool {
-        do {
-            return try Regex(pattern: "^[LM3][a-km-zA-HJ-NP-Z1-9]{26,33}$",
-                             options: [],
-                             groupNames: []).matches(address!)
+        if let address = address {
+            do {
+                return try Regex(pattern: "^[LM3][a-km-zA-HJ-NP-Z1-9]{26,33}$",
+                                 options: [],
+                                 groupNames: []).matches(address)
+            }
+            catch { }
         }
-        catch {
-            return false
-        }
+        return false
     }
 }
 
@@ -140,6 +157,13 @@ public class BitcoinService : BlockchainService {
     
     public init() {
         
+    }
+    
+    public var externalServiceProvider:String
+    {
+        get {
+            return "blockchain.info"
+        }
     }
     
     public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber) -> Void) {
@@ -171,14 +195,15 @@ public class BitcoinService : BlockchainService {
          * DOES NOT SUPPORT https://en.bitcoin.it/wiki/Bech32
          * https://en.bitcoin.it/wiki/Address
          */
-        do {
-            return try Regex(pattern: "^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$",
-                             options: [],
-                             groupNames: []).matches(address!)
+        if let address = address {
+            do {
+                return try Regex(pattern: "^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$",
+                                 options: [],
+                                 groupNames: []).matches(address)
+            }
+            catch {}
         }
-        catch {
-            return false
-        }
+        return false
     }
 }
 
@@ -186,6 +211,13 @@ public class RippleService : BlockchainService {
     
     public init() {
         
+    }
+    
+    public var externalServiceProvider:String
+    {
+        get {
+            return "data.ripple.com"
+        }
     }
     
     public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber) -> Void) {
@@ -220,14 +252,15 @@ public class RippleService : BlockchainService {
         /**
          * https://github.com/k4m4/ripple-regex
          */
-        do {
-            return try Regex(pattern: "^r[0-9a-zA-Z]{33}$",
-                             options: [],
-                             groupNames: []).matches(address!)
+        if let address = address {
+            do {
+                return try Regex(pattern: "^r[0-9a-zA-Z]{33}$",
+                                 options: [],
+                                 groupNames: []).matches(address)
+            }
+            catch { }
         }
-        catch {
-            return false
-        }
+        return false
     }
 }
 
@@ -235,6 +268,13 @@ public class EtheriumClassicService : BlockchainService {
     
     public init() {
         
+    }
+    
+    public var externalServiceProvider:String
+    {
+        get {
+            return "api.gastracker.io"
+        }
     }
     
     public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber) -> Void) {
@@ -263,14 +303,15 @@ public class EtheriumClassicService : BlockchainService {
         /**
          * https://github.com/k4m4/ethereum-regex
          */
-        do {
-            return try Regex(pattern: "^0x[a-fA-F0-9]{40}$",
-                             options: [],
-                             groupNames: []).matches(address!)
+        if let address = address {
+            do {
+                return try Regex(pattern: "^0x[a-fA-F0-9]{40}$",
+                                 options: [],
+                                 groupNames: []).matches(address)
+            }
+            catch { }
         }
-        catch {
-            return false
-        }
+        return false
     }
 }
 
@@ -278,6 +319,13 @@ public class BitcoinCashService : BlockchainService {
     
     public init() {
         
+    }
+    
+    public var externalServiceProvider:String
+    {
+        get {
+            return "blockdozer.com"
+        }
     }
     
     public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber) -> Void) {
@@ -297,14 +345,15 @@ public class BitcoinCashService : BlockchainService {
     }
     
     public func isValid(address: String?) -> Bool {
-        do {
-            return try Regex(pattern: "^[13][a-km-zA-HJ-NP-Z1-9]{33}$",
-                             options: [],
-                             groupNames: []).matches(address!)
+        if let address = address {
+            do {
+                return try Regex(pattern: "^[13][a-km-zA-HJ-NP-Z1-9]{33}$",
+                                 options: [],
+                                 groupNames: []).matches(address)
+            }
+            catch { }
         }
-        catch {
-            return false
-        }
+        return false
     }
 }
 

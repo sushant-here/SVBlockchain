@@ -103,7 +103,7 @@ class DataTests: XCTestCase {
         measure {
             service?.coinsForAddress(address: BTC_ADDRESS, withCallback: { (number) in
                 
-                expect(number.stringValue) == "3.76090018"
+                expect(number.stringValue) == "3.76105098"
                 semaphore.signal()
             })
             
@@ -118,18 +118,15 @@ class DataTests: XCTestCase {
         service = LitecoinService()
         
         let semaphore = DispatchSemaphore(value: 0)
-        
-        measure {
-            service?.coinsForAddress(address: LTC_ADDRESS, withCallback: { (number) in
-                
-                expect(number) > NSDecimalNumber.zero
-                
-                semaphore.signal()
-            })
-            
-            if semaphore.wait(timeout: DispatchTime.now() + .seconds(STANDARD_TIMEOUT)) == .timedOut {
-                XCTFail("Timed out")
-            }
+        service?.coinsForAddress(address: LTC_ADDRESS, withCallback: { (number) in
+
+            expect(number) > NSDecimalNumber.zero
+
+            semaphore.signal()
+        })
+
+        if semaphore.wait(timeout: DispatchTime.now() + .seconds(STANDARD_TIMEOUT)) == .timedOut {
+            XCTFail("Timed out")
         }
     }
     
@@ -149,16 +146,14 @@ class DataTests: XCTestCase {
         
         let semaphore = DispatchSemaphore(value: 0)
         
-        measure {
-            service?.coinsForAddress(address: LTC_ADDRESS, withCallback: { (number) in
-                
-                expect(number) == NSDecimalNumber.init(string: "897135.39008633")
-                semaphore.signal()
-            })
+        service?.coinsForAddress(address: LTC_ADDRESS, withCallback: { (number) in
             
-            if semaphore.wait(timeout: DispatchTime.now() + .seconds(STANDARD_TIMEOUT)) == .timedOut {
-                XCTFail("Timed out")
-            }
+            expect(number) == NSDecimalNumber.init(string: "897135.39855629")
+            semaphore.signal()
+        })
+        
+        if semaphore.wait(timeout: DispatchTime.now() + .seconds(STANDARD_TIMEOUT)) == .timedOut {
+            XCTFail("Timed out")
         }
     }
     
