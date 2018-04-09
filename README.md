@@ -1,6 +1,6 @@
 # SVBlockchain
 
-[![CI Status](http://img.shields.io/travis/sushant40/SVBlockchain.svg?style=flat)](https://travis-ci.org/sushant40/SVBlockchain)
+[![Travis](https://img.shields.io/travis/sushant40/SVBlockchain.svg?style=plastic)](https://travis-ci.org/sushant40/SVBlockchain)
 [![Version](https://img.shields.io/cocoapods/v/SVBlockchain.svg?style=flat)](http://cocoapods.org/pods/SVBlockchain)
 [![License](https://img.shields.io/cocoapods/l/SVBlockchain.svg?style=flat)](http://cocoapods.org/pods/SVBlockchain)
 [![Platform](https://img.shields.io/cocoapods/p/SVBlockchain.svg?style=flat)](http://cocoapods.org/pods/SVBlockchain)
