@@ -15,5 +15,5 @@ language: objective-c
 # - gem install cocoapods # Since Travis is not always on latest version
 # - pod install --project-directory=Example
 script:
-- set -o pipefail && xcodebuild -workspace Example/SVBlockchain.xcworkspace -scheme SVBlockchain-Example -destination 'platform=iOS Simulator,name=iPhone 8' | xcpretty
+- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/SVBlockchain.xcworkspace -scheme SVBlockchain-Example -destination 'platform=iOS Simulator,name=iPhone 8' | xcpretty
 - pod lib lint
