@@ -11,7 +11,7 @@ import Regex
 
 public class BlockchainFactory {
     public static func service(forCoin:String?)->BlockchainService? {
-        if let forCoin {
+        if let forCoin = forCoin {
             switch forCoin {
             case "ETH":
                 return EtheriumService()
