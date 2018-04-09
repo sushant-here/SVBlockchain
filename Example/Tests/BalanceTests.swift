@@ -10,61 +10,37 @@ import XCTest
 import Nimble
 import SVBlockchain
 
+import Stubborn
+
 class BalanceTests: XCTestCase {
-    var service:BlockchainService?
-        
+    
+    override func setUp() {
+        super.setUp()
+
+        Stubborn.start()
+    }
+    
+    override func tearDown() {
+        Stubborn.reset()
+
+        super.tearDown()
+    }
+    
     func testEtheriumBalance() {
+        let bundle = Bundle(for: self.classForCoder)
+        Stubborn.add(url: ".*/token/.*/.*",
+                           resource: Stubborn.Body.Resource("ETH", in: bundle)
+        )
         
-        service = EtheriumService()
-        
-        let semaphore = DispatchSemaphore(value: 0)
-        
-        measure {
-            service?.coinsForAddress(address: Addresses.ETH, withCallback: { (number) in
-                
-                expect(number) == NSDecimalNumber.init(string: "0.057273534")
-                semaphore.signal()
-            })
+        let service:BlockchainService = EtheriumService()
+        let expectation = self.expectation(description: "request")
+        service.coinsForAddress(address: Addresses.ETH, withCallback: { (number) in
             
-            if semaphore.wait(timeout: DispatchTime.now() + .seconds(Constants.StandardTimeout)) == .timedOut {
-                XCTFail("Timed out")
-            }
-        }
-    }
-    
-    func testBitcoinBalance() {
-        
-        service = BitcoinService()
-        
-        let semaphore = DispatchSemaphore(value: 0)
-        
-        measure {
-            service?.coinsForAddress(address: Addresses.BTC, withCallback: { (number) in
-                
-                expect(number.stringValue) == "3.76105098"
-                semaphore.signal()
-            })
-            
-            if semaphore.wait(timeout: DispatchTime.now() + .seconds(Constants.StandardTimeout)) == .timedOut {
-                XCTFail("Timed out")
-            }
-        }
-    }
-    
-    func testLitecoinBalance() {
-        
-        service = LitecoinService()
-        
-        let semaphore = DispatchSemaphore(value: 0)
-        
-        service?.coinsForAddress(address: Addresses.LTC, withCallback: { (number) in
-            
-            expect(number) == NSDecimalNumber.init(string: "897135.39855629")
-            semaphore.signal()
+            expect(number) == NSDecimalNumber.init(string: "3.141592653")
+            expectation.fulfill()
         })
         
-        if semaphore.wait(timeout: DispatchTime.now() + .seconds(Constants.StandardTimeout)) == .timedOut {
-            XCTFail("Timed out")
-        }
+        self.waitForExpectations(timeout: 2, handler: nil)
     }
+
 }

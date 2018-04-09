@@ -10,6 +10,7 @@
 		3B51F8902079B42B00892EFC /* ProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B51F88F2079B42B00892EFC /* ProviderTests.swift */; };
 		3B6B6F4D207B8A2C00216C1B /* BalanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B6F4C207B8A2C00216C1B /* BalanceTests.swift */; };
 		3B6B6F4F207B8B4600216C1B /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B6F4E207B8B4600216C1B /* TestConstants.swift */; };
+		3B6B6F56207B993F00216C1B /* ETH.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B6F54207B98AE00216C1B /* ETH.json */; };
 		3BF249622076503E00781D04 /* FactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF249612076503E00781D04 /* FactoryTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 		3B51F88F2079B42B00892EFC /* ProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTests.swift; sourceTree = "<group>"; };
 		3B6B6F4C207B8A2C00216C1B /* BalanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceTests.swift; sourceTree = "<group>"; };
 		3B6B6F4E207B8B4600216C1B /* TestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
+		3B6B6F54207B98AE00216C1B /* ETH.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ETH.json; sourceTree = "<group>"; };
 		3BF249612076503E00781D04 /* FactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryTests.swift; sourceTree = "<group>"; };
 		478B2E0592596757FCE497BA /* Pods_SVBlockchain_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SVBlockchain_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56C106ABB39C430B2F5D374E /* Pods-SVBlockchain_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SVBlockchain_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SVBlockchain_Example/Pods-SVBlockchain_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +99,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3B6B6F53207B989700216C1B /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				3B6B6F54207B98AE00216C1B /* ETH.json */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +153,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				3B6B6F53207B989700216C1B /* resources */,
 				3B6B6F4E207B8B4600216C1B /* TestConstants.swift */,
 				607FACEB1AFB9204008FA782 /* APITests.swift */,
 				3B6B6F4C207B8A2C00216C1B /* BalanceTests.swift */,
@@ -272,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B6B6F56207B993F00216C1B /* ETH.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,10 +386,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SVBlockchain_Tests/Pods-SVBlockchain_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/QueryString/QueryString.framework",
+				"${BUILT_PRODUCTS_DIR}/Stubborn/Stubborn.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QueryString.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stubborn.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
