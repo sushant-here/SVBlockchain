@@ -29,14 +29,31 @@ class BalanceTests: XCTestCase {
     func testEtheriumBalance() {
         let bundle = Bundle(for: self.classForCoder)
         Stubborn.add(url: ".*/token/.*/.*",
-                           resource: Stubborn.Body.Resource("ETH", in: bundle)
+                     resource: Stubborn.Body.Resource("ETH", in: bundle)
         )
         
         let service:BlockchainService = EtheriumService()
         let expectation = self.expectation(description: "request")
         service.coinsForAddress(address: Addresses.ETH, withCallback: { (number) in
             
-            expect(number) == NSDecimalNumber.init(string: "3.141592653")
+            expect(number) == NSDecimalNumber.init(string: "13.14159265")
+            expectation.fulfill()
+        })
+        
+        self.waitForExpectations(timeout: 2, handler: nil)
+    }
+    
+    func testBitcoinBalance() {
+        let bundle = Bundle(for: self.classForCoder)
+        Stubborn.add(url: ".*/blockchain.info/q/addressbalance/.*",
+                     resource: Stubborn.Body.Resource("BTC", in: bundle)
+        )
+        
+        let service:BlockchainService = BitcoinService()
+        let expectation = self.expectation(description: "request")
+        service.coinsForAddress(address: Addresses.BTC, withCallback: { (number) in
+            
+            expect(number) == NSDecimalNumber.init(string: "23.14159265")
             expectation.fulfill()
         })
         

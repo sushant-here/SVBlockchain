@@ -11,6 +11,7 @@
 		3B6B6F4D207B8A2C00216C1B /* BalanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B6F4C207B8A2C00216C1B /* BalanceTests.swift */; };
 		3B6B6F4F207B8B4600216C1B /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B6F4E207B8B4600216C1B /* TestConstants.swift */; };
 		3B6B6F56207B993F00216C1B /* ETH.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B6F54207B98AE00216C1B /* ETH.json */; };
+		3B6B6F59207B9DD200216C1B /* BTC.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B6F57207B9D9B00216C1B /* BTC.json */; };
 		3BF249622076503E00781D04 /* FactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF249612076503E00781D04 /* FactoryTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 		3B6B6F4C207B8A2C00216C1B /* BalanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceTests.swift; sourceTree = "<group>"; };
 		3B6B6F4E207B8B4600216C1B /* TestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		3B6B6F54207B98AE00216C1B /* ETH.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ETH.json; sourceTree = "<group>"; };
+		3B6B6F57207B9D9B00216C1B /* BTC.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BTC.json; sourceTree = "<group>"; };
 		3BF249612076503E00781D04 /* FactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryTests.swift; sourceTree = "<group>"; };
 		478B2E0592596757FCE497BA /* Pods_SVBlockchain_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SVBlockchain_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56C106ABB39C430B2F5D374E /* Pods-SVBlockchain_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SVBlockchain_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SVBlockchain_Example/Pods-SVBlockchain_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				3B6B6F54207B98AE00216C1B /* ETH.json */,
+				3B6B6F57207B9D9B00216C1B /* BTC.json */,
 			);
 			name = resources;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B6B6F56207B993F00216C1B /* ETH.json in Resources */,
+				3B6B6F59207B9DD200216C1B /* BTC.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
