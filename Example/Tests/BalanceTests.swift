@@ -110,4 +110,21 @@ class BalanceTests: XCTestCase {
         
         self.waitForExpectations(timeout: 2, handler: nil)
     }
+    
+    func testBitcoinCashBalance() {
+        let bundle = Bundle(for: self.classForCoder)
+        Stubborn.add(url: ".*/insight-api/addr/.*/balance",
+                     resource: Stubborn.Body.Resource("BCH", in: bundle)
+        )
+        
+        let service:BlockchainService = BitcoinCashService()
+        let expectation = self.expectation(description: "request")
+        service.coinsForAddress(address: Addresses.BCH, withCallback: { (number) in
+            
+            expect(number) == NSDecimalNumber.init(string: "63.14159265")
+            expectation.fulfill()
+        })
+        
+        self.waitForExpectations(timeout: 2, handler: nil)
+    }
 }
