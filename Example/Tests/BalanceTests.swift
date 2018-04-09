@@ -76,4 +76,21 @@ class BalanceTests: XCTestCase {
         
         self.waitForExpectations(timeout: 2, handler: nil)
     }
+    
+    func testRippleBalance() {
+        let bundle = Bundle(for: self.classForCoder)
+        Stubborn.add(url: ".*/v2/accounts/r.*/balances",
+                     resource: Stubborn.Body.Resource("XRP", in: bundle)
+        )
+        
+        let service:BlockchainService = RippleService()
+        let expectation = self.expectation(description: "request")
+        service.coinsForAddress(address: Addresses.XRP, withCallback: { (number) in
+            
+            expect(number) == NSDecimalNumber.init(string: "43.14159265")
+            expectation.fulfill()
+        })
+        
+        self.waitForExpectations(timeout: 2, handler: nil)
+    }
 }
