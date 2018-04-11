@@ -43,6 +43,40 @@ class BalanceTests: XCTestCase {
         self.waitForExpectations(timeout: 2, handler: nil)
     }
     
+    func testEtheriumInvalidResponse() {
+        let bundle = Bundle(for: self.classForCoder)
+        Stubborn.add(url: ".*/token/.*/.*",
+                     resource: Stubborn.Body.Resource("EMPTY_JSON", in: bundle)
+        )
+        
+        let service:BlockchainService = EtheriumService()
+        let expectation = self.expectation(description: "request")
+        service.coinsForAddress(address: Addresses.ETH, withCallback: { (number) in
+            
+            expect(number).to(beNil())
+            expectation.fulfill()
+        })
+        
+        self.waitForExpectations(timeout: 2, handler: nil)
+    }
+    
+    func testEtheriumEmptyResponse() {
+        let bundle = Bundle(for: self.classForCoder)
+        Stubborn.add(url: ".*/token/.*/.*",
+                     resource: Stubborn.Body.Resource("EMPTY_BODY", in: bundle)
+        )
+        
+        let service:BlockchainService = EtheriumService()
+        let expectation = self.expectation(description: "request")
+        service.coinsForAddress(address: Addresses.ETH, withCallback: { (number) in
+            
+            expect(number).to(beNil())
+            expectation.fulfill()
+        })
+        
+        self.waitForExpectations(timeout: 2, handler: nil)
+    }
+    
     func testBitcoinBalance() {
         let bundle = Bundle(for: self.classForCoder)
         Stubborn.add(url: ".*/blockchain.info/q/addressbalance/.*",
