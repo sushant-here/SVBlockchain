@@ -18,6 +18,8 @@
 		3B6B6F61207BA2E500216C1B /* BCH.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B6F60207BA2E500216C1B /* BCH.json */; };
 		3BF249622076503E00781D04 /* FactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF249612076503E00781D04 /* FactoryTests.swift */; };
 		3BF86401207E3DDD00E0F148 /* AddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF86400207E3DDD00E0F148 /* AddressTests.swift */; };
+		3BF86403207ECFF900E0F148 /* EMPTY_JSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BF86402207ECFF900E0F148 /* EMPTY_JSON.json */; };
+		3BF86405207ED01D00E0F148 /* EMPTY_BODY.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BF86404207ED01D00E0F148 /* EMPTY_BODY.json */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -51,6 +53,8 @@
 		3B6B6F60207BA2E500216C1B /* BCH.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BCH.json; sourceTree = "<group>"; };
 		3BF249612076503E00781D04 /* FactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryTests.swift; sourceTree = "<group>"; };
 		3BF86400207E3DDD00E0F148 /* AddressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTests.swift; sourceTree = "<group>"; };
+		3BF86402207ECFF900E0F148 /* EMPTY_JSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EMPTY_JSON.json; sourceTree = "<group>"; };
+		3BF86404207ED01D00E0F148 /* EMPTY_BODY.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EMPTY_BODY.json; sourceTree = "<group>"; };
 		478B2E0592596757FCE497BA /* Pods_SVBlockchain_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SVBlockchain_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56C106ABB39C430B2F5D374E /* Pods-SVBlockchain_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SVBlockchain_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SVBlockchain_Example/Pods-SVBlockchain_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SVBlockchain_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SVBlockchain_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +124,8 @@
 				3B6B6F5C207B9FB900216C1B /* XRP.json */,
 				3B6B6F5E207BA08700216C1B /* ETC.json */,
 				3B6B6F60207BA2E500216C1B /* BCH.json */,
+				3BF86402207ECFF900E0F148 /* EMPTY_JSON.json */,
+				3BF86404207ED01D00E0F148 /* EMPTY_BODY.json */,
 			);
 			name = resources;
 			sourceTree = "<group>";
@@ -303,9 +309,11 @@
 			files = (
 				3B6B6F5B207B9EB800216C1B /* LTC.json in Resources */,
 				3B6B6F56207B993F00216C1B /* ETH.json in Resources */,
+				3BF86403207ECFF900E0F148 /* EMPTY_JSON.json in Resources */,
 				3B6B6F5D207B9FB900216C1B /* XRP.json in Resources */,
 				3B6B6F61207BA2E500216C1B /* BCH.json in Resources */,
 				3B6B6F59207B9DD200216C1B /* BTC.json in Resources */,
+				3BF86405207ED01D00E0F148 /* EMPTY_BODY.json in Resources */,
 				3B6B6F5F207BA08700216C1B /* ETC.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
