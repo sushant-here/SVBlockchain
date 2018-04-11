@@ -17,6 +17,7 @@
 		3B6B6F5F207BA08700216C1B /* ETC.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B6F5E207BA08700216C1B /* ETC.json */; };
 		3B6B6F61207BA2E500216C1B /* BCH.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B6F60207BA2E500216C1B /* BCH.json */; };
 		3BF249622076503E00781D04 /* FactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF249612076503E00781D04 /* FactoryTests.swift */; };
+		3BF86401207E3DDD00E0F148 /* AddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF86400207E3DDD00E0F148 /* AddressTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		3B6B6F5E207BA08700216C1B /* ETC.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ETC.json; sourceTree = "<group>"; };
 		3B6B6F60207BA2E500216C1B /* BCH.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BCH.json; sourceTree = "<group>"; };
 		3BF249612076503E00781D04 /* FactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryTests.swift; sourceTree = "<group>"; };
+		3BF86400207E3DDD00E0F148 /* AddressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTests.swift; sourceTree = "<group>"; };
 		478B2E0592596757FCE497BA /* Pods_SVBlockchain_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SVBlockchain_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56C106ABB39C430B2F5D374E /* Pods-SVBlockchain_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SVBlockchain_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SVBlockchain_Example/Pods-SVBlockchain_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SVBlockchain_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SVBlockchain_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +173,7 @@
 				3B6B6F53207B989700216C1B /* resources */,
 				3B6B6F4E207B8B4600216C1B /* TestConstants.swift */,
 				607FACEB1AFB9204008FA782 /* APITests.swift */,
+				3BF86400207E3DDD00E0F148 /* AddressTests.swift */,
 				3B6B6F4C207B8A2C00216C1B /* BalanceTests.swift */,
 				3BF249612076503E00781D04 /* FactoryTests.swift */,
 				3B51F88F2079B42B00892EFC /* ProviderTests.swift */,
@@ -438,6 +441,7 @@
 			files = (
 				3B6B6F4F207B8B4600216C1B /* TestConstants.swift in Sources */,
 				3B51F8902079B42B00892EFC /* ProviderTests.swift in Sources */,
+				3BF86401207E3DDD00E0F148 /* AddressTests.swift in Sources */,
 				3BF249622076503E00781D04 /* FactoryTests.swift in Sources */,
 				3B6B6F4D207B8A2C00216C1B /* BalanceTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* APITests.swift in Sources */,

@@ -26,17 +26,6 @@ class APITests: XCTestCase {
         }
     }
     
-    func testEtheriumAddress() {
-        
-        service = EtheriumService()
-        
-        expect(self.service?.isValid(address: Addresses.ETH)) == true
-        expect(self.service?.isValid(address: Addresses.ETH.uppercased())) == false
-        expect(self.service?.isValid(address: nil)) == false
-        expect(self.service?.isValid(address: "")) == false
-        expect(self.service?.isValid(address: "abc")) == false
-    }
-    
     func testBitcoinAPI() {
         
         service = BitcoinService()
@@ -57,16 +46,6 @@ class APITests: XCTestCase {
         }
     }
     
-    func testBitcoinAddress() {
-        
-        service = BitcoinService()
-        
-        expect(self.service?.isValid(address: Addresses.BTC)) == true
-        expect(self.service?.isValid(address: nil)) == false
-        expect(self.service?.isValid(address: "")) == false
-        expect(self.service?.isValid(address: "abc")) == false
-    }
-    
     func testLitecoinAPI() {
         
         service = LitecoinService()
@@ -82,16 +61,6 @@ class APITests: XCTestCase {
         if semaphore.wait(timeout: DispatchTime.now() + .seconds(Constants.StandardTimeout)) == .timedOut {
             XCTFail("Timed out")
         }
-    }
-    
-    func testLitecoinAddress() {
-        
-        service = LitecoinService()
-        
-        expect(self.service?.isValid(address: Addresses.LTC)) == true
-        expect(self.service?.isValid(address: nil)) == false
-        expect(self.service?.isValid(address: "")) == false
-        expect(self.service?.isValid(address: "abc")) == false
     }
     
     func testRippleAPI() {
@@ -113,16 +82,6 @@ class APITests: XCTestCase {
         }
     }
     
-    func testRippleAddress() {
-        
-        service = RippleService()
-        
-        expect(self.service?.isValid(address: Addresses.XRP)) == true
-        expect(self.service?.isValid(address: nil)) == false
-        expect(self.service?.isValid(address: "")) == false
-        expect(self.service?.isValid(address: "abc")) == false
-    }
-    
     func testEtheriumClassicAPI() {
         
         service = EtheriumClassicService()
@@ -142,16 +101,6 @@ class APITests: XCTestCase {
         }
     }
     
-    func testEtheriumClassicAddress() {
-        
-        service = EtheriumClassicService()
-        
-        expect(self.service?.isValid(address: Addresses.ETC)) == true
-        expect(self.service?.isValid(address: nil)) == false
-        expect(self.service?.isValid(address: "")) == false
-        expect(self.service?.isValid(address: "abc")) == false
-    }
-    
     func testBitcoinCashAPI() {
         
         service = BitcoinCashService()
@@ -169,15 +118,5 @@ class APITests: XCTestCase {
                 XCTFail("Timed out")
             }
         }
-    }
-    
-    func testBitcoinCashAddress() {
-        
-        service = BitcoinCashService()
-        
-        expect(self.service?.isValid(address: Addresses.BCH)) == true
-        expect(self.service?.isValid(address: nil)) == false
-        expect(self.service?.isValid(address: "")) == false
-        expect(self.service?.isValid(address: "abc")) == false
     }
 }
