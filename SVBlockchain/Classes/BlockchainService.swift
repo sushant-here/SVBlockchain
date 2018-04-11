@@ -34,7 +34,7 @@ public class BlockchainFactory {
 }
 
 public protocol BlockchainService {
-    func coinsForAddress(address:String, withCallback callback: @escaping (NSDecimalNumber)->Void ) -> Void
+    func coinsForAddress(address:String, withCallback callback: @escaping (NSDecimalNumber?)->Void ) -> Void
     
     func isValid(address:String?) -> Bool
     
@@ -60,7 +60,7 @@ public class EtheriumService : BlockchainService {
         }
     }
     
-    public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber) -> Void) {
+    public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber?) -> Void) {
         
         let contract = "0x89205a3a3b2a69de6dbf7f01ed13b2108b2c43e7"
         let url = URL(string: "https://api.tokenbalance.com/token/\(contract)/\(address)")
@@ -73,14 +73,23 @@ public class EtheriumService : BlockchainService {
                     
                     let balance = NSDecimalNumber.init(string: json["eth_balance"].stringValue)
                     
-                    callback(balance)
+                    if balance == NSDecimalNumber.notANumber {
+                        //Not found in json
+                        callback(nil)
+                    }
+                    else {
+                        //SUCCESS
+                        callback(balance)
+                    }
                 }
                 catch {
-                    
+                    //no data?
+                    callback(nil)
                 }
                 
             } else if let error = error {
                 print(error.localizedDescription)
+                callback(nil)
             }
         }
         
@@ -114,7 +123,7 @@ public class LitecoinService : BlockchainService {
         }
     }
     
-    public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber) -> Void) {
+    public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber?) -> Void) {
         //let url = URL(string: "https://chain.so/api/v2/get_address_balance/LTC/\(address)/16")
         let url = URL(string: "https://api.blockcypher.com/v1/ltc/main/addrs/\(address)/balance")
 
@@ -166,7 +175,7 @@ public class BitcoinService : BlockchainService {
         }
     }
     
-    public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber) -> Void) {
+    public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber?) -> Void) {
         
         let url = URL(string: "https://blockchain.info/q/addressbalance/\(address)")
         
@@ -220,7 +229,7 @@ public class RippleService : BlockchainService {
         }
     }
     
-    public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber) -> Void) {
+    public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber?) -> Void) {
         
         let url = URL(string: "https://data.ripple.com/v2/accounts/\(address)/balances")
         
@@ -277,7 +286,7 @@ public class EtheriumClassicService : BlockchainService {
         }
     }
     
-    public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber) -> Void) {
+    public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber?) -> Void) {
         
         let url = URL(string: "https://api.gastracker.io/addr/\(address)")
         
@@ -328,7 +337,7 @@ public class BitcoinCashService : BlockchainService {
         }
     }
     
-    public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber) -> Void) {
+    public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber?) -> Void) {
         
         let url = URL(string: "https://blockdozer.com/insight-api/addr/\(address)/balance")
         
