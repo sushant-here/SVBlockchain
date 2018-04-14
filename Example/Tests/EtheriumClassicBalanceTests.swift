@@ -1,8 +1,8 @@
 //
-//  EtheriumBalanceTests.swift
+//  EtheriumClassicBalanceTests.swift
 //  SVBlockchain_Tests
 //
-//  Created by Sushant Verma on 12/4/18.
+//  Created by Sushant Verma on 13/4/18.
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
@@ -12,34 +12,34 @@ import SVBlockchain
 
 import Stubborn
 
-class EtheriumBalanceTests: BalanceTests {
+class EtheriumClassicBalanceTests: BalanceTests {
     
-    func testEtheriumBalance() {
+    func testEtheriumClassicBalance() {
         let bundle = Bundle(for: self.classForCoder)
-        Stubborn.add(url: ".*/token/.*/.*",
-                     resource: Stubborn.Body.Resource("ETH", in: bundle)
+        Stubborn.add(url: ".*/addr/.*",
+                     resource: Stubborn.Body.Resource("ETC", in: bundle)
         )
         
-        let service:BlockchainService = EtheriumService()
+        let service:BlockchainService = EtheriumClassicService()
         let expectation = self.expectation(description: "request")
-        service.coinsForAddress(address: Addresses.ETH, withCallback: { (number) in
+        service.coinsForAddress(address: Addresses.ETC, withCallback: { (number) in
             
-            expect(number) == NSDecimalNumber.init(string: "13.14159265")
+            expect(number) == NSDecimalNumber.init(string: "53.14159265")
             expectation.fulfill()
         })
         
         self.waitForExpectations(timeout: 2, handler: nil)
     }
     
-    func testEtheriumInvalidResponse() {
+    func testEtheriumClassicInvalidResponse() {
         let bundle = Bundle(for: self.classForCoder)
-        Stubborn.add(url: ".*/token/.*/.*",
+        Stubborn.add(url: ".*/addr/.*",
                      resource: Stubborn.Body.Resource("EMPTY_JSON", in: bundle)
         )
         
-        let service:BlockchainService = EtheriumService()
+        let service:BlockchainService = EtheriumClassicService()
         let expectation = self.expectation(description: "request")
-        service.coinsForAddress(address: Addresses.ETH, withCallback: { (number) in
+        service.coinsForAddress(address: Addresses.ETC, withCallback: { (number) in
             
             expect(number).to(beNil())
             expectation.fulfill()
@@ -48,15 +48,15 @@ class EtheriumBalanceTests: BalanceTests {
         self.waitForExpectations(timeout: 2, handler: nil)
     }
     
-    func testEtheriumEmptyResponse() {
+    func testEtheriumClassicEmptyResponse() {
         let bundle = Bundle(for: self.classForCoder)
-        Stubborn.add(url: ".*/token/.*/.*",
+        Stubborn.add(url: ".*/addr/.*",
                      resource: Stubborn.Body.Resource("EMPTY_BODY", in: bundle)
         )
         
-        let service:BlockchainService = EtheriumService()
+        let service:BlockchainService = EtheriumClassicService()
         let expectation = self.expectation(description: "request")
-        service.coinsForAddress(address: Addresses.ETH, withCallback: { (number) in
+        service.coinsForAddress(address: Addresses.ETC, withCallback: { (number) in
             
             expect(number).to(beNil())
             expectation.fulfill()
@@ -65,17 +65,17 @@ class EtheriumBalanceTests: BalanceTests {
         self.waitForExpectations(timeout: 2, handler: nil)
     }
     
-    func testEtheriumErrorResponse() {
-        Stubborn.add(url: ".*/token/.*/.*",
+    func testEtheriumClassicErrorResponse() {
+        Stubborn.add(url: ".*/addr/.*",
                      error: Stubborn.Body.Error(404, "Not Found"))
         
-        let service:BlockchainService = EtheriumService()
+        let service:BlockchainService = EtheriumClassicService()
         let expectation = self.expectation(description: "request")
-        service.coinsForAddress(address: Addresses.ETH, withCallback: { (number) in
+        service.coinsForAddress(address: Addresses.ETC) { (number) in
             
             expect(number).to(beNil())
             expectation.fulfill()
-        })
+        }
         
         self.waitForExpectations(timeout: 2, handler: nil)
     }

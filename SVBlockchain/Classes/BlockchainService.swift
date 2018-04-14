@@ -91,6 +91,10 @@ public class EtheriumService : BlockchainService {
                 print(error.localizedDescription)
                 callback(nil)
             }
+            else {
+                callback(nil)
+
+            }
         }
         
         task.resume()
@@ -132,17 +136,28 @@ public class LitecoinService : BlockchainService {
             if let data = data {
                 do {
                     let json = try JSON(data: data)
-                    
-                    let balance = NSDecimalNumber.init(string: json["final_balance"].stringValue).dividing(by: NSDecimalNumber.init(mantissa: 1, exponent: 8, isNegative: false))
-                                        
-                    callback(balance)
+                    let jsonBalance = NSDecimalNumber.init(string: json["final_balance"].stringValue)
+
+                    if jsonBalance == NSDecimalNumber.notANumber {
+                        callback(nil)
+                    }
+                    else {
+                        let balance = jsonBalance.dividing(by: NSDecimalNumber.init(mantissa: 1, exponent: 8, isNegative: false))
+                        
+                        callback(balance)
+                    }
                 }
                 catch {
-                    
+                    // cant parse json
+                    callback(nil)
                 }
                 
             } else if let error = error {
                 print(error.localizedDescription)
+                callback(nil)
+            }
+            else {
+                callback(nil)
             }
         }
         
@@ -182,9 +197,22 @@ public class BitcoinService : BlockchainService {
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             
             if let data = data {
-                let balance = NSDecimalNumber.init(string: String.init(data: data, encoding: String.Encoding.utf8)).dividing(by: NSDecimalNumber.init(mantissa: 1, exponent: 8, isNegative: false))
+                let responseValue = NSDecimalNumber.init(string: String.init(data: data, encoding: String.Encoding.utf8))
                 
-                callback(balance)
+                if responseValue == NSDecimalNumber.notANumber {
+                    callback(nil)
+                }
+                else {
+                    let balance = responseValue.dividing(by: NSDecimalNumber.init(mantissa: 1, exponent: 8, isNegative: false))
+                    
+                    callback(balance)
+                }
+            } else if let error = error {
+                print(error.localizedDescription)
+                callback(nil)
+            }
+            else {
+                callback(nil)
             }
         }
         
@@ -239,18 +267,30 @@ public class RippleService : BlockchainService {
                 do {
                     let json = try JSON(data: data)
                     
+                    var balance = NSDecimalNumber.notANumber
                     for (_,subJson):(String, JSON) in json["balances"] {
                         if subJson["currency"].stringValue == "XRP" {
-                            let balance = NSDecimalNumber.init(string: subJson["value"].stringValue)
-                            
-                            callback(balance)
+                            balance = NSDecimalNumber.init(string: subJson["value"].stringValue)
+                            break;
                         }
                     }
-                    
+                    if balance == NSDecimalNumber.notANumber {
+                        callback(nil)
+                    }
+                    else {
+                        callback(balance)
+                    }
                 }
                 catch {
-                    
+                    callback(nil)
                 }
+            }
+            else if let error = error {
+                print(error.localizedDescription)
+                callback(nil)
+            }
+            else {
+                callback(nil)
             }
         }
         
@@ -297,11 +337,23 @@ public class EtheriumClassicService : BlockchainService {
                     let json = try JSON(data: data)
                     
                     let balance = NSDecimalNumber.init(string: json["balance"]["ether"].stringValue)
-                    callback(balance)
+                    if balance == NSDecimalNumber.notANumber {
+                        callback(nil)
+                    }
+                    else {
+                        callback(balance)
+                    }
                 }
                 catch {
-                    
+                    callback(nil)
                 }
+            }
+            else if let error = error {
+                print(error.localizedDescription)
+                callback(nil)
+            }
+            else {
+                callback(nil)
             }
         }
         
@@ -344,9 +396,22 @@ public class BitcoinCashService : BlockchainService {
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             
             if let data = data {
-                let balance = NSDecimalNumber.init(string: String.init(data: data, encoding: String.Encoding.utf8)).dividing(by: NSDecimalNumber.init(mantissa: 1, exponent: 8, isNegative: false))
-                
-                callback(balance)
+                let dataBalance = NSDecimalNumber.init(string: String.init(data: data, encoding: String.Encoding.utf8))
+                if dataBalance == NSDecimalNumber.notANumber {
+                    callback(nil)
+                }
+                else {
+                    let balance = dataBalance.dividing(by: NSDecimalNumber.init(mantissa: 1, exponent: 8, isNegative: false))
+                    
+                    callback(balance)
+                }
+            }
+            else if let error = error {
+                print(error.localizedDescription)
+                callback(nil)
+            }
+            else {
+                callback(nil)
             }
         }
         

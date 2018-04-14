@@ -16,6 +16,11 @@
 		3B6B6F5D207B9FB900216C1B /* XRP.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B6F5C207B9FB900216C1B /* XRP.json */; };
 		3B6B6F5F207BA08700216C1B /* ETC.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B6F5E207BA08700216C1B /* ETC.json */; };
 		3B6B6F61207BA2E500216C1B /* BCH.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B6F60207BA2E500216C1B /* BCH.json */; };
+		3B784D4620804F490022134B /* BitcoinBalanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B784D4520804F490022134B /* BitcoinBalanceTests.swift */; };
+		3B784D482080599A0022134B /* LitecoinBalanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B784D472080599A0022134B /* LitecoinBalanceTests.swift */; };
+		3B784D4A20805E400022134B /* RippleBalanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B784D4920805E400022134B /* RippleBalanceTests.swift */; };
+		3B784D4C20805FFB0022134B /* EtheriumClassicBalanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B784D4B20805FFB0022134B /* EtheriumClassicBalanceTests.swift */; };
+		3B784D4E208060E40022134B /* BitcoinCashBalanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B784D4D208060E40022134B /* BitcoinCashBalanceTests.swift */; };
 		3BF249622076503E00781D04 /* FactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF249612076503E00781D04 /* FactoryTests.swift */; };
 		3BF86401207E3DDD00E0F148 /* AddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF86400207E3DDD00E0F148 /* AddressTests.swift */; };
 		3BF86403207ECFF900E0F148 /* EMPTY_JSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BF86402207ECFF900E0F148 /* EMPTY_JSON.json */; };
@@ -52,6 +57,11 @@
 		3B6B6F5C207B9FB900216C1B /* XRP.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = XRP.json; sourceTree = "<group>"; };
 		3B6B6F5E207BA08700216C1B /* ETC.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ETC.json; sourceTree = "<group>"; };
 		3B6B6F60207BA2E500216C1B /* BCH.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BCH.json; sourceTree = "<group>"; };
+		3B784D4520804F490022134B /* BitcoinBalanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinBalanceTests.swift; sourceTree = "<group>"; };
+		3B784D472080599A0022134B /* LitecoinBalanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitecoinBalanceTests.swift; sourceTree = "<group>"; };
+		3B784D4920805E400022134B /* RippleBalanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleBalanceTests.swift; sourceTree = "<group>"; };
+		3B784D4B20805FFB0022134B /* EtheriumClassicBalanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtheriumClassicBalanceTests.swift; sourceTree = "<group>"; };
+		3B784D4D208060E40022134B /* BitcoinCashBalanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinCashBalanceTests.swift; sourceTree = "<group>"; };
 		3BF249612076503E00781D04 /* FactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryTests.swift; sourceTree = "<group>"; };
 		3BF86400207E3DDD00E0F148 /* AddressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTests.swift; sourceTree = "<group>"; };
 		3BF86402207ECFF900E0F148 /* EMPTY_JSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EMPTY_JSON.json; sourceTree = "<group>"; };
@@ -137,6 +147,11 @@
 			children = (
 				3B6B6F4C207B8A2C00216C1B /* BalanceTests.swift */,
 				3BF86407207ED42B00E0F148 /* EtheriumBalanceTests.swift */,
+				3B784D4520804F490022134B /* BitcoinBalanceTests.swift */,
+				3B784D472080599A0022134B /* LitecoinBalanceTests.swift */,
+				3B784D4920805E400022134B /* RippleBalanceTests.swift */,
+				3B784D4B20805FFB0022134B /* EtheriumClassicBalanceTests.swift */,
+				3B784D4D208060E40022134B /* BitcoinCashBalanceTests.swift */,
 			);
 			name = "Balance Tests";
 			sourceTree = "<group>";
@@ -458,13 +473,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B784D4E208060E40022134B /* BitcoinCashBalanceTests.swift in Sources */,
+				3B784D4A20805E400022134B /* RippleBalanceTests.swift in Sources */,
 				3B6B6F4F207B8B4600216C1B /* TestConstants.swift in Sources */,
+				3B784D482080599A0022134B /* LitecoinBalanceTests.swift in Sources */,
 				3B51F8902079B42B00892EFC /* ProviderTests.swift in Sources */,
 				3BF86401207E3DDD00E0F148 /* AddressTests.swift in Sources */,
 				3BF249622076503E00781D04 /* FactoryTests.swift in Sources */,
 				3B6B6F4D207B8A2C00216C1B /* BalanceTests.swift in Sources */,
+				3B784D4620804F490022134B /* BitcoinBalanceTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* APITests.swift in Sources */,
 				3BF86408207ED42B00E0F148 /* EtheriumBalanceTests.swift in Sources */,
+				3B784D4C20805FFB0022134B /* EtheriumClassicBalanceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
