@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SVBlockchain'
-  s.version          = '0.1.7'
+  s.version          = '0.2.0'
   s.summary          = 'Blockchain account balance querying for iOS apps!'
 
   s.description      = <<-DESC
