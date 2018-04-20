@@ -4,7 +4,7 @@ PODS:
   - QueryString (0.2.2)
   - Stubborn (0.5.2):
     - QueryString (= 0.2.2)
-  - SVBlockchain (0.2.0):
+  - SVBlockchain (1.0.0):
     - CrossroadRegex (~> 1.1.0)
     - SwiftyJSON (~> 4.0)
   - SwiftyJSON (4.0.0)
@@ -23,7 +23,7 @@ SPEC CHECKSUMS:
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
   QueryString: de7cee83b6f3b6b708f03842bd5558e895cf8e7c
   Stubborn: 15755e2a9ef1d4370e83b2bfed13a0039323b45f
-  SVBlockchain: 49016437b4787387a4e426c0f77f4fbdaa6a3124
+  SVBlockchain: fa08289d1d1c612c2ba40de3bb61fce41041b886
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
 PODFILE CHECKSUM: cb42fa2f2ffc3eb08df2bb1d512839bacd63856e

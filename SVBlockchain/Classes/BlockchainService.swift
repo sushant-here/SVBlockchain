@@ -71,14 +71,15 @@ public class EtheriumService : BlockchainService {
                 do {
                     let json = try JSON(data: data)
                     
-                    let balance = NSDecimalNumber.init(string: json["eth_balance"].stringValue)
+                    let jsonBalance = NSDecimalNumber.init(string: json["eth_balance"].stringValue)
                     
-                    if balance == NSDecimalNumber.notANumber {
+                    if jsonBalance == NSDecimalNumber.notANumber {
                         //Not found in json
                         callback(nil)
                     }
                     else {
                         //SUCCESS
+                        let balance = jsonBalance.dividing(by: NSDecimalNumber.init(mantissa: 1, exponent: 9, isNegative: false))
                         callback(balance)
                     }
                 }
