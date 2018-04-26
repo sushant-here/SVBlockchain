@@ -13,7 +13,7 @@ import SVBlockchain
 class ProviderTests: XCTestCase {
     
     func testEtheriumProvider() {
-        expect(EtheriumService().externalServiceProvider) == "tokenbalance.com"
+        expect(EtheriumService().externalServiceProvider) == "api.ethplorer.io"
     }
     
     func testBitcoinProvider() {

@@ -16,7 +16,7 @@ class EtheriumBalanceTests: BalanceTests {
     
     func testEtheriumBalance() {
         let bundle = Bundle(for: self.classForCoder)
-        Stubborn.add(url: ".*/token/.*/.*",
+        Stubborn.add(url: ".*/getAddressInfo/.*",
                      resource: Stubborn.Body.Resource("ETH", in: bundle)
         )
         

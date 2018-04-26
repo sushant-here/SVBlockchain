@@ -56,14 +56,15 @@ public class EtheriumService : BlockchainService {
     public var externalServiceProvider:String
     {
         get {
-            return "tokenbalance.com"
+            return "api.ethplorer.io"
         }
     }
     
     public func coinsForAddress(address: String, withCallback callback: @escaping (NSDecimalNumber?) -> Void) {
         
-        let contract = "0x89205a3a3b2a69de6dbf7f01ed13b2108b2c43e7"
-        let url = URL(string: "https://api.tokenbalance.com/token/\(contract)/\(address)")
+//        let contract = "0x89205a3a3b2a69de6dbf7f01ed13b2108b2c43e7"
+//        let url = URL(string: "https://api.tokenbalance.com/token/\(contract)/\(address)")
+        let url = URL(string: "https://api.ethplorer.io/getAddressInfo/\(address)?apiKey=freekey")
         
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             
@@ -71,7 +72,7 @@ public class EtheriumService : BlockchainService {
                 do {
                     let json = try JSON(data: data)
                     
-                    let jsonBalance = NSDecimalNumber.init(string: json["eth_balance"].stringValue)
+                    let jsonBalance = NSDecimalNumber.init(string: json["ETH"]["balance"].stringValue)
                     
                     if jsonBalance == NSDecimalNumber.notANumber {
                         //Not found in json
@@ -79,8 +80,7 @@ public class EtheriumService : BlockchainService {
                     }
                     else {
                         //SUCCESS
-                        let balance = jsonBalance.dividing(by: NSDecimalNumber.init(mantissa: 1, exponent: 9, isNegative: false))
-                        callback(balance)
+                        callback(jsonBalance)
                     }
                 }
                 catch {
