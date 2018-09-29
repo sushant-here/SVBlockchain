@@ -5,13 +5,12 @@ extension Stubborn {
 
     public struct Request {
         
-        public typealias Method = String
         public typealias URL = String
         public typealias StatusCode = Int
         
         private var request: URLRequest
         
-        public var method: Method? // TODO: make enum
+        public var method: Method?
         public var url: URL
         public var queryString: QueryString?
         public var body: Body.Dictionary?
@@ -23,7 +22,7 @@ extension Stubborn {
         init(request: URLRequest) {
             self.request = request
             
-            self.method = request.httpMethod
+            self.method = Method(rawValue: request.httpMethod ?? "")
             self.url = request.url!.absoluteString
             self.queryString = QueryString(url: &self.url)
             self.body = Body.Dictionary(request.httpBody)
@@ -65,7 +64,7 @@ extension Stubborn.Request: CustomStringConvertible {
         let nilString = "<nil>"
         
         var description = "Request({"
-        description = "\(description)\n    Method: \(self.method ?? nilString)"
+        description = "\(description)\n    Method: \(self.method?.rawValue ?? nilString)"
         description = "\(description)\n    Url: \(self.url)"
         description = "\(description)\n    QueryString: \(self.queryString ?? QueryString())"
         description = "\(description)\n    Body: \(self.body ?? Stubborn.Body.Dictionary())"

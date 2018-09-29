@@ -3,10 +3,10 @@ extension Stubborn {
 
     public class Body {
         
-        public typealias Key = AnyHashable
+        public typealias Key = String
         public typealias Value = Any
         
-        typealias InternalBody = [Key: Value]
+        public typealias InternalBody = [Key: Value]
         
         internal private(set) var body: InternalBody
         

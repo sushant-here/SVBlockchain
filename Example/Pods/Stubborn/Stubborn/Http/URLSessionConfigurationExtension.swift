@@ -60,9 +60,10 @@ extension URLSessionConfiguration {
     }
     
     private class func exchange(_ selector: Selector, with replacementSelector: Selector) {
-        let method = class_getClassMethod(self, selector)
-        let replacementMethod = class_getClassMethod(self, replacementSelector)
-        method_exchangeImplementations(method!, replacementMethod!)
+        if let method = class_getClassMethod(self, selector),
+            let replacementMethod = class_getClassMethod(self, replacementSelector) {
+            method_exchangeImplementations(method, replacementMethod)
+        }
     }
 
 }

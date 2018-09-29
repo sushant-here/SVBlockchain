@@ -49,6 +49,11 @@ public class Stubborn {
     }
     
     @discardableResult
+    public static func add(url: String, simple: Stubborn.Body.Simple) -> Stub {
+        return self.add(stub: Stub(url, simple: simple))
+    }
+    
+    @discardableResult
     public static func add(url: String, resource: Stubborn.Body.Resource) -> Stub {
         return self.add(stub: Stub(url, resource: resource))
     }

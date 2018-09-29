@@ -27,6 +27,10 @@ extension Stubborn {
             self.init(url) { _ in error }
         }
         
+        convenience init(_ url: String, simple: Body.Simple) {
+            self.init(url) { _ in simple }
+        }
+        
         convenience init(_ url: String, resource: Body.Resource) {
             self.init(url) { _ in resource }
         }
@@ -65,7 +69,7 @@ extension Stubborn.Stub: CustomStringConvertible {
         description = "\(description)\n    Url: \(self.url)"
         description = "\(description)\n    QueryString: \(self.queryString ?? QueryString())"
         description = "\(description)\n    Body: \(self.body ?? Stubborn.Body.Dictionary())"
-        description = "\(description)\n    Delay: \(self.delay)"
+        description = "\(description)\n    Delay: \(String(self.delay?.rawValue ?? 0))"
         description = "\(description)\n})"
         
         return description

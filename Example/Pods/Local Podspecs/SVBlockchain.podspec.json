@@ -18,11 +18,11 @@
   "platforms": {
     "ios": "8.0"
   },
-  "swift_version": "4.0",
+  "swift_version": "4.2",
   "source_files": "SVBlockchain/Classes/**/*",
   "dependencies": {
     "SwiftyJSON": [
-      "~> 4.0"
+      "~> 4.2"
     ],
     "CrossroadRegex": [
       "~> 1.1.0"

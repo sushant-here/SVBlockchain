@@ -2,7 +2,7 @@
 
 [![](https://img.shields.io/badge/contact-@thematerik-blue.svg?style=flat-square)](http://twitter.com/thematerik)
 [![](https://img.shields.io/cocoapods/v/Stubborn.svg?style=flat-square)](https://cocoapods.org/pods/Stubborn)
-[![](https://img.shields.io/travis/materik/stubborn.svg?style=flat-square)](https://travis-ci.org/materik/stubborn)
+[![](https://img.shields.io/travis/materik/cocoapod-stubborn.svg?style=flat-square)](https://travis-ci.org/materik/cocoapod-stubborn)
 ![](https://img.shields.io/cocoapods/p/Stubborn.svg?style=flat-square)
 ![](https://img.shields.io/cocoapods/l/Stubborn.svg?style=flat-square)
 

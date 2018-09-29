@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SVBlockchain'
-  s.version          = '1.1.0'
+  s.version          = '1.2.0'
   s.summary          = 'Blockchain account balance querying for iOS apps!'
 
   s.description      = <<-DESC
@@ -30,10 +30,10 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/sushant40/SVBlockchain.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
-  s.swift_version = '4.0'
+  s.swift_version = '4.2'
 
   s.source_files = 'SVBlockchain/Classes/**/*'
   
-  s.dependency 'SwiftyJSON', '~> 4.0'
+  s.dependency 'SwiftyJSON', '~> 4.2'
   s.dependency 'CrossroadRegex', '~> 1.1.0'
 end
